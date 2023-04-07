@@ -11,7 +11,7 @@ https://docs.djangoproject.com/en/4.1/ref/settings/
 """
 
 from pathlib import Path
-from base_configs import database_engine
+from base_configs import *
 
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -85,11 +85,11 @@ elif database_engine == 'postgres':
     DATABASES = {
         'default': {
             'ENGINE': 'django.db.backends.postgresql',
-            'NAME': 'admin',
-            'USER': 'admin',
-            'PASSWORD': 'password',
-            'HOST': 'database',
-            'PORT': 5432,
+            'NAME': POSTGRES_DB_NAME,
+            'USER': POSTGRES_USER,
+            'PASSWORD': POSTGRES_PASSWORD,
+            'HOST': POSTGRES_HOST,
+            'PORT': POSTGRES_PORT,
         }
     }
 
