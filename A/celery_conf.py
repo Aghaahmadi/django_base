@@ -1,25 +1,23 @@
 import os
-
 from celery import Celery
 from celery.schedules import crontab
+from base_configs import celery_broker
 
-broker = 'redis'
-# broker = 'rabbitmq'
 
-if broker == 'redis':
+if celery_broker == 'redis':
     REDIS_HOST = 'localhost'
     REDIS_PORT = 6379
     REDIS_DB = 0
     BROKER_URL = f"redis://{REDIS_HOST}:{REDIS_PORT}/{REDIS_DB}"
     CELERY_RESULT_BACKEND = f"redis://{REDIS_HOST}:{REDIS_PORT}/{REDIS_DB}"
-elif broker == 'rabbitmq':
+elif celery_broker == 'rabbitmq':
     RABBITMQ_HOST = 'localhost'
     RABBITMQ_PORT = 5672
     RABBITMQ_USER = 'guest'
     BROKER_URL = f"amqp://{RABBITMQ_USER}@{RABBITMQ_HOST}:{RABBITMQ_PORT}//"
     CELERY_RESULT_BACKEND = f"amqp://{RABBITMQ_USER}@{RABBITMQ_HOST}:{RABBITMQ_PORT}//"
 else:
-    raise ValueError(f"broker {broker} is not supported")
+    raise ValueError(f"broker {celery_broker} is not supported")
 
 CELERY_ACCEPT_CONTENT = ['json']
 CELERY_TASK_SERIALIZER = 'json'
