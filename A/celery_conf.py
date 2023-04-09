@@ -35,12 +35,12 @@ celery_app.autodiscover_tasks()
 celery_app.conf.beat_schedule = {
     "add-every-30-seconds": {
         "task": "home.tasks.task1",
-        "schedule": 5.0,
+        "schedule": 60.0,
         # "args": (1, ),
     },
     "add-every-60-seconds": {
          "task": "home.tasks.task2",
-         "schedule": 10.0,
+         "schedule": 120.0,
          # "args": (0, ),
     },
 }

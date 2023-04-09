@@ -11,10 +11,14 @@ cron-descriptor==1.2.35
 Django==4.2
 django-celery-beat==2.5.0
 django-timezone-field==5.0
+future==0.18.3
+gunicorn==20.1.0
 kombu==5.2.4
 numpy==1.24.2
 pandas==2.0.0
 prompt-toolkit==3.0.38
+psycopg2==2.9.6
+psycopg2-binary==2.9.6
 python-crontab==2.7.1
 python-dateutil==2.8.2
 pytz==2023.3
